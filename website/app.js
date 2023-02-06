@@ -2,13 +2,13 @@
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = (d.getMonth()+1) + '-' + d.getDate() + '-' + d.getFullYear();
+let newDate = (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getFullYear();
 
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?'
 const apiKey = 'appid=e0b77c3ea2f0d5cfa389696b6e84d07d&units=imperial';
 
 // Async GET
-getData = async (url: string) => {
+const getData = async (url) => {
     const request = await fetch(url);
     try {
         // Transform into JSON
@@ -19,14 +19,15 @@ getData = async (url: string) => {
         // appropriately handle the error
     }
 };
-products = this.getData("admin/products").then((r) => { console.log(this.products = r) })
+products = this.getData("admin/products").then((r) => {
+    console.log(this.products = r)
+})
 const getData = async (url) => {
     const request = await fetch(url);
     try {
         // Transform into JSON
         const data = await request.json()
-        if (data.cod !== 200) alert("please enter a valid US zipcode")
-        else return (data)
+        if (data.cod !== 200) alert("please enter a valid US zipcode") else return (data)
     } catch (error) {
         console.log("error", error);
         // appropriately handle the error
